@@ -1,0 +1,38 @@
+{
+  "name": "campusroute",
+  "productName": "CampusRoute",
+  "version": "2.0.0",
+  "description": "CampusRoute - campus routes, live reports and the admin control room",
+  "main": "main.js",
+  "author": "SameerAkhtar5678",
+  "license": "MIT",
+  "build": {
+    "appId": "com.campusroute.app",
+    "productName": "CampusRoute",
+    "files": [
+      "main.js",
+      "app/**/*"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "build/icon.png"
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "deleteAppDataOnUninstall": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "CampusRoute"
+    }
+  },
+  "devDependencies": {
+    "electron": "^45.4.1",
+    "electron-builder": "^26.18.0"
+  },
+  "allowScripts": {
+    "electron@45.4.1": true
+  }
+}

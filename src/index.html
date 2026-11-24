@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<title>CampusRoute — Network console</title>
+<link rel="icon" href="../icon.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="./lucide.min.js"></script>
+<style>
+/*__CSS__*/
+</style>
+</head>
+<body>
+<div id="app">
+  <header class="top">
+    <div class="brand"><span class="logo"><i data-lucide="route"></i></span><b>CampusRoute</b><small>Network console</small></div>
+    <nav class="modes" id="modes" aria-label="Sections">
+      <button class="mode on" data-act="mode" data-mode="navigate"><i data-lucide="navigation"></i>Navigate</button>
+      <button class="mode" data-act="mode" data-mode="design"><i data-lucide="pencil-ruler"></i>Design</button>
+      <button class="mode" data-act="mode" data-mode="live"><i data-lucide="radio"></i>Live<span class="cnt" id="cnt-live" hidden></span></button>
+      <button class="mode" data-act="mode" data-mode="questions"><i data-lucide="messages-square"></i>Questions<span class="cnt" id="cnt-q" hidden></span></button>
+      <button class="mode" data-act="mode" data-mode="admin"><i data-lucide="shield"></i>Admin<span class="cnt" id="cnt-admin" hidden></span></button>
+    </nav>
+    <button class="rolebtn" id="rolebtn" data-act="signout" hidden></button>
+  </header>
+  <main class="stage">
+    <section class="map-col">
+      <div class="mapbar">
+        <span class="hint" id="hint"></span>
+        <span class="tools" id="tools" hidden>
+          <span class="seg small">
+            <button data-act="tool" data-tool="move" class="on" title="Select and move (drag empty space to pan)"><i data-lucide="mouse-pointer-2"></i>Move</button>
+            <button data-act="tool" data-tool="add" title="Put a place on the map"><i data-lucide="map-pin"></i>Place</button>
+            <button data-act="tool" data-tool="road" title="Drag from one place to another"><i data-lucide="spline"></i>Road</button>
+            <button data-act="tool" data-tool="erase" title="Remove a place or a road"><i data-lucide="eraser"></i>Erase</button>
+          </span>
+          <button class="icobtn dim" data-act="undo" id="undobtn" title="Undo (Ctrl+Z)" aria-label="Undo"><i data-lucide="undo-2"></i></button>
+          <button class="icobtn" data-act="lock" id="lockbtn" title="Lock layout" aria-label="Lock layout"><i data-lucide="lock-open"></i></button>
+        </span>
+      </div>
+      <div class="map-wrap" id="wrap">
+        <svg id="map" viewBox="0 0 960 530" role="img" aria-label="Campus map. Tap a place to choose it."></svg>
+        <div class="zooms">
+          <button data-act="zoomin" title="Zoom in" aria-label="Zoom in"><i data-lucide="zoom-in"></i></button>
+          <button data-act="zoomout" title="Zoom out" aria-label="Zoom out"><i data-lucide="zoom-out"></i></button>
+          <button data-act="fit" title="Fit everything on screen" aria-label="Fit map"><i data-lucide="maximize"></i></button>
+        </div>
+        <div class="pop" id="pop" hidden></div>
+      </div>
+    </section>
+    <aside class="side" id="side" aria-label="Details"></aside>
+  </main>
+  <div class="gate" id="gate" hidden>
+    <div class="gatebox">
+      <span class="logo"><i data-lucide="route"></i></span>
+      <h1>CampusRoute</h1>
+      <p>Who is signing in?</p>
+      <button class="btn primary wide" data-act="role" data-role="citizen"><i data-lucide="user"></i>Enter as citizen</button>
+      <button class="btn wide" data-act="role" data-role="adminpick"><i data-lucide="shield"></i>Admin mode</button>
+      <div id="adminbox" hidden>
+        <input class="inp" id="admin-code" placeholder="Paste the admin code" autocomplete="off">
+        <button class="btn primary wide" data-act="role" data-role="admin"><i data-lucide="lock-open"></i>Unlock admin mode</button>
+        <div id="adminmsg"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+<div class="lightbox" id="lightbox" hidden><img alt="Report photo, enlarged"></div>
+<input type="file" id="file-photo-type" accept="image/*" capture="environment" hidden>
+<input type="file" id="file-post" accept="image/*" capture="environment" hidden>
+<script>
+/*__CORE__*/
+</script>
+<script>
+/*__APP__*/
+</script>
+<script>
+/*__VIEWS__*/
+</script>
+</body>
+</html>
